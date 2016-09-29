@@ -1,0 +1,54 @@
+package com.ouc.mortimer.sep23;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class CF719B {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		BigInteger max;
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			BigInteger t = sc.nextBigInteger();
+			String score = sc.next();
+			String res;
+			int flag = score.indexOf('.');	
+			char[] arr = score.toCharArray();
+			char[] front = score.substring(0, flag).toCharArray();
+			int lmt = n;
+			for (BigInteger i = BigInteger.ZERO; i.compareTo(t) == -1; i = i.add(BigInteger.ONE)) {
+				int ok = 0;
+				for (int j = flag + 1; j < lmt; j++) {
+					if (arr[j] >= '5') {
+						if (j-1 != flag) {
+							arr[j-1]++;
+							lmt = j;
+							ok = 1;
+						} else {
+							lmt = j-1;
+							ok = 0;
+							break;
+						}
+					}
+				}
+				if (ok == 0)
+					break;
+			}
+			
+			if(lmt == flag){
+				while(lmt > 0 && front[lmt-1] == '9' ){
+					front[lmt-1] = '0';
+					lmt--;
+				}
+				res = new String(front);
+				if(lmt == 0){
+					res = "1" + res;
+				}
+			} else {
+				res = new String(arr);
+				res = res.substring(0,lmt);
+			}
+			System.out.println(res);
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/T12WORK_LiuYiyu/src/com/hpe/t12/work2/PhoneBookManager.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.hpe.t12.work2.PhoneBookManager"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="T12WORK_LiuYiyu"/>
+</launchConfiguration>

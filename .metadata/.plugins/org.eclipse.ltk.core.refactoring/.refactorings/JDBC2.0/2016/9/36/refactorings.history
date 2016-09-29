@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;JDBC3.0/src/com.hpe.jdbc.po&apos;&#x0D;&#x0A;- Original project: &apos;JDBC2.0&apos;&#x0D;&#x0A;- Destination element: &apos;JDBC3.0/src/com.hpe.jdbc.po&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.hpe.jdbc.po.Customer.java&#x0D;&#x0A;     com.hpe.jdbc.po.Product.java" description="Copy compilation units" destination="=JDBC3.0/src&lt;com.hpe.jdbc.po" element1="/src&lt;com.hpe.jdbc.po{Customer.java" element2="/src&lt;com.hpe.jdbc.po{Product.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472778362154" units="2" version="1.0"/>
+</session>

@@ -1,0 +1,99 @@
+package com.ouc.mortimer.sep22;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class UVA {
+
+	public static void main(String[] args) {
+		int[] head = new int[20005];
+		int[] kni = new int[20005];
+		int m, n;
+		int cur = 0;// 当前处理的下标
+		BigInteger pay = BigInteger.ZERO;
+		int ok = 0;
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			m = sc.nextInt();
+			n = sc.nextInt();
+			if (m == 0 && n == 0)
+				break;
+			else {
+				for (int i = 0; i < n; i++)
+					head[i] = sc.nextInt();
+				for (int j = 0; j < m; j++)
+					kni[j] = sc.nextInt();
+				if (n > m) {
+					System.out.println("Loowater is doomed!");
+					continue;
+				} else {
+					sort(head, 0, n);
+					sort(kni, 0, m);
+					for (int i = 0; i < m; i++) {
+						if (head[cur] <= kni[i]) {
+							pay = pay.add(BigInteger.valueOf(kni[i]));
+							cur++;
+						}
+						if (cur == n) {
+							ok = 1;
+							break;
+						}
+					}
+					if (ok == 1)
+						System.out.println(pay);
+					else
+						System.out.println("Loowater is doomed!");
+					pay = BigInteger.ZERO;// 一个case之后要记得复原啊乖乖>皿<
+					cur = 0;
+					ok = 0;
+				}
+			}
+		}
+		sc.close();
+	}
+
+	public static int[] sort(int[] nums, int low, int high) {
+		int mid = (low + high) / 2;
+		if (low < high) {
+			// 左边
+			sort(nums, low, mid);
+			// 右边
+			sort(nums, mid + 1, high);
+			// 左右归并
+			merge(nums, low, mid, high);
+		}
+		return nums;
+	}
+
+
+	public static void merge(int[] nums, int low, int mid, int high) {
+		int[] temp = new int[high - low + 1];
+		int i = low;// 左指针
+		int j = mid + 1;// 右指针
+		int k = 0;
+
+		// 把较小的数先移到新数组中
+		while (i <= mid && j <= high) {
+			if (nums[i] < nums[j]) {
+				temp[k++] = nums[i++];
+			} else {
+				temp[k++] = nums[j++];
+			}
+		}
+
+		// 把左边剩余的数移入数组
+		while (i <= mid) {
+			temp[k++] = nums[i++];
+		}
+
+		// 把右边边剩余的数移入数组
+		while (j <= high) {
+			temp[k++] = nums[j++];
+		}
+
+		// 把新数组中的数覆盖nums数组
+		for (int k2 = 0; k2 < temp.length; k2++) {
+			nums[k2 + low] = temp[k2];
+		}
+	}
+}
